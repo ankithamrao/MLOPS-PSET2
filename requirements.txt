@@ -1,5 +1,17 @@
 # local package
 -e .
+dagshub
+dvc
+joblib
+pandas
+numpy
+scikit-learn
+mlflow
+pylint
+pytest-cov
+matplotlib
+seaborn
+
 
 # external requirements
 click
