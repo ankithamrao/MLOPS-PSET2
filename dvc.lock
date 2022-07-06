@@ -38,7 +38,7 @@ stages:
       size: 1159
     params:
       params.yaml:
-        lr: 0.03
+        lr: 0.032
         model_type: ElasticNet
         random_state: 42
         train:
@@ -65,7 +65,7 @@ stages:
       size: 2712
     params:
       params.yaml:
-        lr: 0.03
+        lr: 0.032
         model_type: ElasticNet
         random_state: 42
         train:

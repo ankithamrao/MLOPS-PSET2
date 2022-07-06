@@ -16,4 +16,4 @@ jobs:
       - name: do_prediction
         run: |
           pip install -r requirements.txt
-          dvc repro
+          make run_check
