@@ -11,8 +11,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: 
           make requirements
-          #dvc repro
-
-          # Add report 
-          #cml-publish reports/metrics.json --md > report.md
-          #cml-send-comment report.md
+          dvc repro
