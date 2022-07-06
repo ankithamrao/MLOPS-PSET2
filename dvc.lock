@@ -26,3 +26,42 @@ stages:
       md5: 743808c1a0f95c79210f6492f7c63c47.dir
       size: 6428
       nfiles: 4
+  train:
+    cmd: python3 src/models/train_model.py
+    deps:
+    - path: features
+      md5: 743808c1a0f95c79210f6492f7c63c47.dir
+      size: 6428
+      nfiles: 4
+    - path: src/models/train_model.py
+      md5: 19bf5694a863fad320503725cc66824a
+      size: 1159
+    params:
+      params.yaml:
+        model_type: ElasticNet
+    outs:
+    - path: models
+      md5: 47e5c5b56a28c248a419b311d0c4ceff.dir
+      size: 814
+      nfiles: 1
+  evaluate:
+    cmd: python3 src/models/predict_model.py
+    deps:
+    - path: features
+      md5: 743808c1a0f95c79210f6492f7c63c47.dir
+      size: 6428
+      nfiles: 4
+    - path: models
+      md5: 47e5c5b56a28c248a419b311d0c4ceff.dir
+      size: 814
+      nfiles: 1
+    - path: src/models/predict_model.py
+      md5: 6f99cdbec7c1bb653ab403040904cadc
+      size: 1931
+    params:
+      params.yaml:
+        model_type: ElasticNet
+    outs:
+    - path: reports/metrics.json
+      md5: 840ee7b87fe89400ba1411d6fb276da1
+      size: 83

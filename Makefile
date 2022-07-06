@@ -34,6 +34,34 @@ clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
 
+## Creating dvc.yaml
+run_dvc:
+	dvc run -f -n prepare \
+	-d src/data/make_dataset.py \
+	-o data/processed \
+	python3 src/data/make_dataset.py
+	
+	dvc run -f -n featurize \
+	-d src/features/build_features.py \
+	-d data/processed \
+	-o features \
+	python3 src/features/build_features.py
+	
+	dvc run -f -n train \
+	-d src/models/train_model.py \
+	-d features \
+	-o models \
+	-p model_type \
+	python3 src/models/train_model.py
+	
+	dvc run -f -n evaluate \
+	-d src/models/predict_model.py \
+	-d features \
+	-d models \
+	-p model_type \
+	-M reports/metrics.json \
+	python3 src/models/predict_model.py
+  
 ## Lint using flake8
 lint:
 	flake8 src

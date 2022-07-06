@@ -12,3 +12,23 @@ stages:
     - src/features/build_features.py
     outs:
     - features
+  train:
+    cmd: python3 src/models/train_model.py
+    deps:
+    - features
+    - src/models/train_model.py
+    params:
+    - model_type
+    outs:
+    - models
+  evaluate:
+    cmd: python3 src/models/predict_model.py
+    deps:
+    - features
+    - models
+    - src/models/predict_model.py
+    params:
+    - model_type
+    metrics:
+    - reports/metrics.json:
+        cache: false
