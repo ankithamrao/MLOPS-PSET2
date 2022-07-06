@@ -16,4 +16,3 @@ jobs:
       - name: do_prediction
         run: |
           pip install -r requirements.txt
-          make run_check
