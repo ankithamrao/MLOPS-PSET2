@@ -9,6 +9,6 @@ jobs:
       - name: predict_model
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: 
+        run: |
           make requirements
           dvc repro
