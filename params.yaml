@@ -1,5 +1,5 @@
 model_type: ElasticNet
-lr: 0.031
+lr: 0.032
 random_state: 42
 
 train:
