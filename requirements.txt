@@ -9,8 +9,7 @@ scikit-learn
 mlflow
 pylint
 pytest-cov
-matplotlib
-seaborn
+config
 
 
 # external requirements
