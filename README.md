@@ -1,5 +1,7 @@
 # MLOPS-PSET2
 
+Repository created to integrate Github, DVC and MLFlow tracking.
+
 Project Organization
 ------------
 
