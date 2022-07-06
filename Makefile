@@ -51,14 +51,14 @@ run_dvc:
 	-d src/models/train_model.py \
 	-d features \
 	-o models \
-	-p model_type \
+	-p model_type,lr,random_state,train \
 	python3 src/models/train_model.py
 	
 	dvc run -f -n evaluate \
 	-d src/models/predict_model.py \
 	-d features \
 	-d models \
-	-p model_type \
+	-p model_type,lr,random_state,train \
 	-M reports/metrics.json \
 	python3 src/models/predict_model.py
   

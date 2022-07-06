@@ -18,7 +18,10 @@ stages:
     - features
     - src/models/train_model.py
     params:
+    - lr
     - model_type
+    - random_state
+    - train
     outs:
     - models
   evaluate:
@@ -28,7 +31,10 @@ stages:
     - models
     - src/models/predict_model.py
     params:
+    - lr
     - model_type
+    - random_state
+    - train
     metrics:
     - reports/metrics.json:
         cache: false

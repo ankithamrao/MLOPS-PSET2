@@ -1,10 +1,4 @@
 # MLOPS-PSET2
-PSET2
-
-
-dvc init
-dvc remote add origin https://dagshub.com/ankithamrao/MLOPS-PSET2.dvc
-dvc remote modify origin --local auth basic
 
 Project Organization
 ------------
@@ -15,12 +9,15 @@ Project Organization
     ├── data
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   ├── processed      <- Processed output of raw_files
+    │   └── raw_files      <- The original, immutable data dump.
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
+    │
+    ├── features           <- Extracted features from data
+    |
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
@@ -53,3 +50,30 @@ Project Organization
     │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+
+Steps
+
+1.Create GitHub repository
+
+2.Create AWS environment and clone the git repo
+
+3.Create DAGShub repo and connect it to github repo
+
+4.Configure DVC
+dvc init
+dvc remote add origin https://dagshub.com/ankithamrao/MLOPS-PSET2.dvc
+dvc remote modify origin --local auth basic
+dvc remote modify origin --local user ankithamrao
+dvc remote modify origin --local password <>
+dvc pull -r origin
+
+5.Configure MLFlow based tracking inside predict_model file
+
+6.Run DVC which creates dvc.yaml file with the required stages. Post this, dvc_repro will be sufficient
+make run_dvc
+After 1st run, dvc_repro
+
+7.Push changes to DVC 
+dvc push -r origin
+
+8.Push changes to GIT
