@@ -4,7 +4,7 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Makefile           <- Makefile with run_dvc command to create dvc.yaml 
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
@@ -12,7 +12,7 @@ Project Organization
     │   ├── processed      <- Processed output of raw_files
     │   └── raw_files      <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs               
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -61,19 +61,27 @@ Steps
 
 4.Configure DVC
 dvc init
+
 dvc remote add origin https://dagshub.com/ankithamrao/MLOPS-PSET2.dvc
+
 dvc remote modify origin --local auth basic
+
 dvc remote modify origin --local user ankithamrao
+
 dvc remote modify origin --local password <>
+
 dvc pull -r origin
 
 5.Configure MLFlow based tracking inside predict_model file
 
 6.Run DVC which creates dvc.yaml file with the required stages. Post this, dvc_repro will be sufficient
+
 make run_dvc
+
 After 1st run, dvc_repro
 
 7.Push changes to DVC 
+
 dvc push -r origin
 
 8.Push changes to GIT
