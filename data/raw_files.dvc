@@ -1,0 +1,5 @@
+outs:
+- md5: 6550e8cfdbb633c83329d1926772abda.dir
+  size: 85821
+  nfiles: 1
+  path: raw_files

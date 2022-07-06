@@ -1,0 +1,14 @@
+stages:
+  prepare:
+    cmd: python3 src/data/make_dataset.py
+    deps:
+    - src/data/make_dataset.py
+    outs:
+    - data/processed
+  featurize:
+    cmd: python3 src/features/build_features.py
+    deps:
+    - data/processed
+    - src/features/build_features.py
+    outs:
+    - features

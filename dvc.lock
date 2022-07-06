@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python3 src/data/make_dataset.py
+    deps:
+    - path: src/data/make_dataset.py
+      md5: 72e75edfc5fb4cf4e12021af02e5a653
+      size: 669
+    outs:
+    - path: data/processed
+      md5: 0934408ed544a61a2536499dcc4f67f9.dir
+      size: 92145
+      nfiles: 2
+  featurize:
+    cmd: python3 src/features/build_features.py
+    deps:
+    - path: data/processed
+      md5: 0934408ed544a61a2536499dcc4f67f9.dir
+      size: 92145
+      nfiles: 2
+    - path: src/features/build_features.py
+      md5: f6a46a7d026612440008bb06e3bad46a
+      size: 1231
+    outs:
+    - path: features
+      md5: 743808c1a0f95c79210f6492f7c63c47.dir
+      size: 6428
+      nfiles: 4
