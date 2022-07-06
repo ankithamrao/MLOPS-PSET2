@@ -1,5 +1,6 @@
 # local package
 -e .
+
 dagshub
 dvc
 joblib
@@ -10,7 +11,6 @@ mlflow
 pylint
 pytest-cov
 config
-
 
 # external requirements
 click

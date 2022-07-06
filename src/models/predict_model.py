@@ -7,7 +7,7 @@ from sklearn.linear_model import ElasticNet, LogisticRegression
 import pandas as pd
 import numpy as np
 
-from config import Config
+from src.config import Config
 
 
 def eval_metrics(actual, pred):
